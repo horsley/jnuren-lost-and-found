@@ -45,7 +45,7 @@ class Post extends CI_Controller {
                 $this->input->post('place_detail'),
                 $this->input->post('item_detail'),
                 $pic,
-                $this->input->post('contract')
+                $this->input->post('contact')
             )) {
                 redirect($this->_url[$this->input->post('info_type')]);
             } else {
