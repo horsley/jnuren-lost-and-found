@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Created by JetBrains PhpStorm.
  * User: horsley
@@ -40,7 +40,7 @@
                     <div class="input-append input-prepend">
                         <span class="add-on"><i class="icon-search"></i></span>
                         <input class="span2" type="text" name="s" placeholder="物品信息">
-                        <button type="button" class="btn btn-primary"> 搜索</button>
+                        <button type="submit" class="btn btn-primary"> 搜索</button>
                     </div>
                 </form>
 
