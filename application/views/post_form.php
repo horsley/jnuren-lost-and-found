@@ -9,6 +9,8 @@
 <div class="container" style="margin: 2em auto">
     <div class="row-fluid" style="min-height: 420px">
         <?php echo form_open_multipart('post', array('class' => 'form-horizontal', 'id' => 'post_new_item')) ?>
+
+        <?php echo $antibot; ?>
             <div class="control-group">
                 <label class="control-label">发布类型：</label>
                 <div class="controls">

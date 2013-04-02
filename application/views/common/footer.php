@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Created by JetBrains PhpStorm.
  * User: horsley
@@ -12,7 +12,7 @@
         &copy; 2013 <a href="http://www.jnuren.com" target="_blank">Jnuren</a>. All Rights Reserved.
     </span>
     <span class="pull-right" style="color: #bbc">
-        WebDesign by <a href="http://weibo.com/shoko24" target="_blank">Shol</a>,
+        UI by <a href="http://weibo.com/shoko24" target="_blank">Yqol</a>,
         Code by <a href="http://weibo.com/horsley" target="_blank">Horsley</a>
     </span>
 </div>
