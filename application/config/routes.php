@@ -38,15 +38,15 @@
 |
 */
 
-$route['default_controller'] = "lnf_index";
-$route['404_override'] = '';
+$route['default_controller']    = "lnf_index";
+$route['404_override']          = '';
 
-$route['found'] = 'lnf_index/found';
-$route['found/(:num)'] = 'lnf_index/found/$1';
-$route['lost'] = 'lnf_index/lost';
-$route['lost/(:num)'] = 'lnf_index/lost/$1';
-$route['search']    = 'lnf_index/search';
-
+$route['found']                 = 'lnf_index/found';
+$route['found/(:num)']          = 'lnf_index/found/$1';
+$route['lost']                  = 'lnf_index/lost';
+$route['lost/(:num)']           = 'lnf_index/lost/$1';
+$route['search']                = 'lnf_index/search';
+$route['delete/(:num)/(:any)']  = 'modify/delete/$1/$2';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

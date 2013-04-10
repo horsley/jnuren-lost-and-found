@@ -35,7 +35,7 @@ class Items extends CI_Model {
             'pic_related'   => $pic,
             'contact'       => $contact,
             'type'          => $item_type
-        ));
+        )) ? $this->db->insert_id() : false; //成功返回插入的id，失败返回假
     }
 
     /**
@@ -73,5 +73,22 @@ class Items extends CI_Model {
 
         $query = $this->db->get(self::TB_NAME);
         return $query->result_array();
+    }
+
+    /**
+     * 修改删除用的密钥
+     * @param $item_id
+     * @return string
+     */
+    public function modify_hash($item_id) {
+        return sha1(sha1($item_id) . $this->config->item('encryption_key'));
+    }
+
+    /**
+     * 删除物品
+     * @param $item_id
+     */
+    public function delete_item($item_id) {
+        $this->db->delete(self::TB_NAME, array('id' => $item_id));
     }
 }

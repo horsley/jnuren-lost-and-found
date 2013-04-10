@@ -49,7 +49,7 @@ class Post extends CI_Controller {
                 $pic = $pic['file_name'];
             }
 
-            if ($this->items->add_item( //add_item($item_type, $item_name, $place, $place_detail, $item_detail, $pic, $contact) {
+            if ($item_id = $this->items->add_item( //add_item($item_type, $item_name, $place, $place_detail, $item_detail, $pic, $contact) {
                 $this->input->post('info_type'),
                 $this->input->post('item_name'),
                 $this->input->post('place'),
@@ -58,7 +58,15 @@ class Post extends CI_Controller {
                 $pic,
                 $this->input->post('contact')
             )) {
-                redirect($this->_url[$this->input->post('info_type')]);
+
+                $modify_hash = $this->items->modify_hash($item_id);
+                $this->load->view('common/header', array(
+                    'nav_active'    => 'post_success',
+                    'modify_url'    => base_url('delete/' . $item_id . '/' . $modify_hash),
+                    'return_url'    => base_url($this->_url[$this->input->post('info_type')]),
+                ));
+                $this->load->view('post_success');
+                $this->load->view('common/footer');
             } else {
                 show_error('信息发布失败！请稍后重试');
             }

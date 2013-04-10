@@ -59,6 +59,15 @@
         });
     });
 </script>
+<?php elseif (!empty($nav_active) && $nav_active == 'post_success') : //成功页面的复制链接  ?>
+<script type="text/javascript" src="<? echo base_url() ?>js/ZeroClipboard.min.js">
+    ZeroClipboard.setDefaults( { moviePath: '<? echo base_url() ?>img/ZeroClipboard.swf' } );
+</script>
+<script type="text/javascript">
+    if ($('#mod_url').length) {
+        var clip = new ZeroClipboard($('button#url_copy'));
+    }
+ </script>
 <?php else: ?>
 <!-- funcybox to show pic-->
 <link rel="stylesheet" href="<? echo base_url() ?>css/jquery.fancybox.css">
@@ -69,7 +78,6 @@
         $(".fancybox").fancybox();
     });
 </script>
-
 <?php endif; ?>
 </body>
 </html>
