@@ -39,7 +39,10 @@
                 <form class="navbar-form pull-right" id="search" action="<?php echo base_url('search')?>" method="get" style="padding-top: 5px;">
                     <div class="input-append input-prepend">
                         <span class="add-on"><i class="icon-search"></i></span>
-                        <input class="span2" type="text" name="s" placeholder="物品信息">
+                        <input class="span2" type="text" name="s" placeholder="物品信息" value="<?php if(!empty($keyword)) echo $keyword ?>">
+                        <input type="hidden" name="type" value="<?php
+                            if (!empty($nav_active) && in_array($nav_active, array('lost', 'found'))) echo $nav_active;
+                            else echo 'found'; //默认搜索类型 ?>">
                         <button type="submit" class="btn btn-primary"> 搜索</button>
                     </div>
                 </form>

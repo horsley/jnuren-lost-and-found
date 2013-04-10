@@ -64,12 +64,19 @@ class Items extends CI_Model {
     /**
      * 搜索
      * @param $keyword
+     * @param $search_type 搜索类型 同上   found or lost
+     * @return
      */
-    public function search_items($keyword) {
+    public function search_items($keyword, $search_type) {
+        if ($search_type == 'lost') {
+            $search_type = 2;
+        } else {
+            $search_type = 1;
+        }
+        $this->db->where('type', $search_type);
+        $this->db->where("(`name` LIKE '%{$keyword}%' OR `item_detail` LIKE '%{$keyword}%')");
         $this->db->order_by('id', 'desc');
-        $this->db->like('name', $keyword);
         $this->db->limit(10);
-        $this->db->or_like('item_detail', $keyword);
 
         $query = $this->db->get(self::TB_NAME);
         return $query->result_array();

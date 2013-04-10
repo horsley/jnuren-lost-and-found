@@ -50,15 +50,20 @@ class Lnf_index extends CI_Controller {
     }
 
     public function search($keyword = '') {
-        $keyword = $this->input->get('s');
+        $keyword = trim($this->input->get('s'));
+        $search_type = $this->input->get('type');
 
+        if (!in_array($search_type, $this->_url)) $search_type = 'found'; //默认搜索失物
         $data = array(
             'place'         => $this->_place,
             'nav_active'    => 'search', //hack, not to active anyone
             'pagination'    => ' ', //get + search + pagination = headache, 主要是url的问题，还有模型的搜索方法也要写
-            'items'         => $this->items->search_items($keyword)
+            'items'         => $this->items->search_items($keyword, $search_type),
+            'search_type'   => $search_type,
+            'keyword'       => $keyword
         );
         $this->load->view('common/header', $data);
+        $this->load->view('search_type');
         $this->load->view('lnf_index');
         $this->load->view('common/footer');
     }

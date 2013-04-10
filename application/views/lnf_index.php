@@ -1,4 +1,4 @@
-<div class="container" style="margin-top: 2em;">
+<div class="container" <?php if(empty($nav_active) || $nav_active != 'search') echo 'style="margin-top: 2em;"' ?> >
     <div class="row-fluid" style="min-height: 400px">
         <?php if (!empty($items)): ?>
         <style>
@@ -7,7 +7,6 @@
         <table id="items" class="table table-striped table-hover" style="table-layout: fixed">
             <thead>
             <tr>
-                <th style="width: 5%">#</th>
                 <th style="width: 12%">物品名称</th>
                 <th style="width: 28%">物品简述</th>
                 <th style="width: 5%">校区</th>
@@ -20,7 +19,6 @@
             <tbody>
             <?php foreach($items as $item): ?>
             <tr>
-                <td><?php echo $item['id']?></td>
                 <td title="<?php echo $item['name']?>"><?php echo $item['name']?></td>
                 <td title="<?php echo $item['item_detail']?>"><?php echo $item['item_detail']?></td>
                 <td><?php echo $place[$item['place']]?></td>
