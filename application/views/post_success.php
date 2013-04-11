@@ -3,7 +3,11 @@
 		<p>如有需要，你可以保存好以下链接（可用于删除本条信息）</p>
         <div class="input-append">
             <input id="mod_url" type="text" value="<?php echo $modify_url; ?>" class="input-xxlarge">
-            <button id="url_copy" class="btn btn-success" data-clipboard-target="mod_url">复制</button>
+            <button id="url_copy" class="btn btn-success" data-clipboard-target="mod_url">
+                <span>复制</span>
+                <span id="cp_success_sign" class="hide"><i class="icon-white icon-ok-circle"></i></span>
+            </button>
         </div>
+
         <p><a href="<?php echo $return_url ?>">返回首页</a></p>
 	</div>

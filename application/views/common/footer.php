@@ -60,12 +60,15 @@
     });
 </script>
 <?php elseif (!empty($nav_active) && $nav_active == 'post_success') : //成功页面的复制链接  ?>
-<script type="text/javascript" src="<? echo base_url() ?>js/ZeroClipboard.min.js">
-    ZeroClipboard.setDefaults( { moviePath: '<? echo base_url() ?>img/ZeroClipboard.swf' } );
-</script>
+<script type="text/javascript" src="<? echo base_url() ?>js/ZeroClipboard.min.js"></script>
 <script type="text/javascript">
+    ZeroClipboard.setDefaults( { moviePath: '<? echo base_url() ?>img/ZeroClipboard.swf' } );
     if ($('#mod_url').length) {
         var clip = new ZeroClipboard($('button#url_copy'));
+
+        clip.on( 'complete', function(client, args) {
+            $('span#cp_success_sign').show();
+        });
     }
  </script>
 <?php else: ?>
