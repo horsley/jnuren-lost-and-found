@@ -18,7 +18,7 @@
 </div>
 
 <!-- global load jquery/search form validation -->
-<script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js">//cdn jquery</script>
+<script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js">/*cdn jquery*/</script>
 <script>!window.jQuery && document.write('<script src="<? echo base_url() ?>js/jquery.js"><\/script>')</script>
 
 <script>
@@ -73,7 +73,7 @@
  </script>
 <?php else: ?>
 <!-- funcybox to show pic-->
-<link rel="stylesheet" href="<? echo base_url() ?>css/jquery.fancybox.css">
+<link rel="stylesheet" href="<? echo base_url() ?>css/jquery.fancybox.css" type="text/css">
 <script type="text/javascript" src="<? echo base_url() ?>js/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
     //展示图片的

@@ -38,7 +38,7 @@ class Lnf_index extends CI_Controller {
     }
 
     public function index() {
-        $this->found();
+        $this->lost();
     }
 
     public function lost($page = 1) {

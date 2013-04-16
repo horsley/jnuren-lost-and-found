@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Created by JetBrains PhpStorm.
  * User: horsley
@@ -6,7 +6,7 @@
  * Time: 上午12:57
  * To change this template use File | Settings | File Templates.
  */?><!DOCTYPE html>
-<html lang="cn">
+<html lang="zh">
 <head>
     <meta charset="utf-8">
     <title>暨南大学失物招领</title>
@@ -15,7 +15,7 @@
     <meta name="author" content="horsley,shol">
 
     <!-- Le styles -->
-    <link href="<? echo base_url() ?>css/a.css" rel="stylesheet">
+    <link href="<? echo base_url() ?>css/a.css" rel="stylesheet" type="text/css">
     <style type="text/css">
         body {padding-top: 60px;}
         .pagination {margin: 0;}
