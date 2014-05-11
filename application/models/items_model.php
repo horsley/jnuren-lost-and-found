@@ -1,19 +1,12 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: horsley
- * Date: 13-3-27
- * Time: 上午11:04
- * To change this template use File | Settings | File Templates.
- */
+if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Items extends CI_Model {
+class items_model extends CI_Model {
     const TB_NAME = 'items';
 
     public function __construct() {
         $this->load->database();
     }
-
     /**
      * 插入物品信息
      * @param $item_type
@@ -25,10 +18,10 @@ class Items extends CI_Model {
      * @param $contact
      * @return mixed
      */
-    public function add_item($item_type, $item_name, $place, $place_detail, $item_detail, $pic, $contact) {
+    public function add_item($item_type, $item_name, $place_detail, $item_detail, $pic, $contact) {
+        date_default_timezone_set('Asia/Shanghai');
         return $this->db->insert(self::TB_NAME, array(
             'name'          => $item_name,
-            'place'         => $place,
             'place_detail'  => $place_detail,
             'item_detail'   => $item_detail,
             'pub_date'     => date('Y-m-d'),
@@ -61,19 +54,18 @@ class Items extends CI_Model {
         return $this->db->count_all_results(self::TB_NAME);
     }
 
+    public function edit_item($thisid,$thisclass,$thisvalue) {
+        $data = array($thisclass => $thisvalue);
+        $this->db->where('id', $thisid);
+        return $this->db->update(self::TB_NAME, $data); 
+    }
+
     /**
      * 搜索
      * @param $keyword
-     * @param $search_type 搜索类型 同上   found or lost
      * @return
      */
-    public function search_items($keyword, $search_type) {
-        if ($search_type == 'lost') {
-            $search_type = 2;
-        } else {
-            $search_type = 1;
-        }
-        $this->db->where('type', $search_type);
+    public function search_items($keyword) {
         $this->db->where("(`name` LIKE '%{$keyword}%' OR `item_detail` LIKE '%{$keyword}%')");
         $this->db->order_by('id', 'desc');
         $this->db->limit(10);
@@ -96,6 +88,13 @@ class Items extends CI_Model {
      * @param $item_id
      */
     public function delete_item($item_id) {
-        $this->db->delete(self::TB_NAME, array('id' => $item_id));
+        $this->db->where('id', $item_id);
+        $query = $this->db->get(self::TB_NAME);
+        $data = $query->result_array();
+        if(count($data)==1){
+            if(!empty($data[0]['pic_related']))
+                unlink($_SERVER['DOCUMENT_ROOT'].'/uploads/'. $data[0]['pic_related']);
+            $this->db->delete(self::TB_NAME, array('id' => $item_id));
+        }
     }
 }

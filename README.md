@@ -1,17 +1,14 @@
-暨南大学寻物系统
-=============
+## 失物招领系统
 
-本项目前端设计主要由 [主妇乔](http://weibo.com/shoko24) 完成，感谢她！
+简单的实物招领系统，支持发布实物和招领信息，支持全局搜索，支持管理员登陆修改和管理信息。
 
-这就是个特别简单的系统，主要用于帮助暨大更好的做好失物招领和寻物启事，鉴于校方并无官方寻物系统
-，而每天寻物微博数量可不小，但是几个官方大号转发出来的就够刷屏了，因此随手写了这个东西，
-这是我用Codeigniter框架做出来的第一个成品，算是练手吧
+基于[jnuren-lost-and-found](https://github.com/horsley/jnuren-lost-and-found)构建。
 
 ### 使用组件
 + Codeigniter
-+ Bootstrap
++ Bootstrap 3.0
 + jQuery
 + jQuery.fancybox
 
-### 更新纪录
-+ 2013.4.1 alpha 1
+### 授权
+遵循[MIT](http://opensource.org/licenses/MIT)授权协议。
