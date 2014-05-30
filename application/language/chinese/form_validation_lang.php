@@ -1,6 +1,7 @@
 <?php
 
-$lang['required']			= "%s 字段必填.";
+$lang['required']			= "%s 字段必填。";
+$lang['password_check']     = "登录失败，用户名或密码错误。";
 $lang['isset']				= "The %s field must have a value.";
 $lang['valid_email']		= "The %s field must contain a valid email address.";
 $lang['valid_emails']		= "The %s field must contain all valid email addresses.";
